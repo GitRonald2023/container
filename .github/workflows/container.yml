@@ -17,9 +17,15 @@ jobs:
       - name: "buildDockerfile"
         run: |
           docker build -t ubuntucloudcamp:1.0.0 .
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: "deployment"
         run: |
-          docker login ghcr.io -u gitronald2023 --password $GITHUB_TOKEN
+          #docker login ghcr.io -u gitronald2023 --password $GITHUB_TOKEN
           docker tag ubuntucloudcamp:1.0.0 ghcr.io/gitronald2023/ubuntucloudcamp:latest
           docker push ghcr.io/gitronald2023/ubuntucloudcamp:latest
         
