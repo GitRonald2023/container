@@ -19,6 +19,6 @@ jobs:
           docker build -t ubuntucloudcamp:1.0.0 .
       - name: "deployment"
         run: |
-          docker tag ubuntuCloudcamp:1.0.0 ghcr.io/GitRonald2023/ubuntuCloudcamp:latest
-          docker push ghcr.io/GitRonald2023/ubuntuCloudcamp:latest
+          docker tag ubuntucloudcamp:1.0.0 ghcr.io/gitronald2023/ubuntucloudcamp:latest
+          docker push ghcr.io/GitRonald2023/ubuntucloudcamp:latest
         
